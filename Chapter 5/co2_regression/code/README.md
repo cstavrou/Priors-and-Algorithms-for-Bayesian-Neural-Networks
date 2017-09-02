@@ -7,7 +7,7 @@ All scripts can be ran using the **terminal**, by first navigating to the *code*
 
 Once you have navigated to the right folder you can run each script as follows:
 
-***1. make_data_files.py***
+## 1. make_data_files.py
 
 This script makes the specific **training** and **test** datasets that are used in the dissertation. Please note that they are already in the **data** folder. 
 
