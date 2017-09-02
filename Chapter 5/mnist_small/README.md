@@ -1,4 +1,4 @@
-# Small Mnist dataset
+# Small MNIST dataset
 
 This is the MNIST dataset with 2000 training and 2000 test examples (explained in the dissertation). The script to create the dataset can be found in the **code** folder.
 
