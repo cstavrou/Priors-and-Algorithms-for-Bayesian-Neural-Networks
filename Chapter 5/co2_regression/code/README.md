@@ -132,6 +132,8 @@ Performs Automatic Differentation Variational Inference (ADVI) on a 1 hidden lay
 
 The script to make all the required plots for the models using HMC or SGHMC inference. This script must be ran after the inference is ran and all the files required to make the plots and additional statistics have been stored in the *"/saved/...."* directory. This script requires that the location, and the name of all the files created from the inference remain unchanged.
 
+All the plots are saved in the corresponding folder, please note that in the terminal the Monte Carlo test MSE estimate and its standard deviation are printed, along with the number of samples collected and the point estimate test MSE (these are not stored anywhere else, therefore might need to be copied from the terminal).
+
 **Options:**
   1. Number of hidden units (int)
   2. Inference method (str: hmc or sghmc)
