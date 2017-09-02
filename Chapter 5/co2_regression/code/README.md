@@ -88,3 +88,69 @@ step_size_new = step_size * (1 - discount factor)^m * (1 + discount factor)^(k -
   2. [Windows:]
   py.exe co2_regression_1l.py 0 500 hmc normal 1000 0.001 70 1 15 10 False
   
+  
+## 4. co2_regression_2l.py
+
+This takes the same commands as the **co2_regression_1l.py** and performs HMC or SGHMC inference on a BNN with 2 hidden layers.
+
+
+## 5. co2_regression_1l_VI.py
+
+Performs Variational Inference (VI) on a 1 hidden layer Bayesian NN, using the Variational Mean Field (VMF) approximating distribution. 
+
+Again, when the script is ran a new folder path "saved/... model specifics ..." will be created where the plots used for the BNNs using VI will be saved along with the information file *info_file.csv*, which contains the summary of the specific model, e.g. running times, batch size, and the final MSE, and so on.
+
+**Options:**
+  1. Number of hidden units (int)
+  2. Number of variational inference iterations (int)
+  3. Prior dispersion parameter (float > 0) [note this is then rescaled accordingly]
+      1. Normal: sigma = std/sqrt(d_j), where d_j are units from previous layer 
+      2. Laplace: b = std^2/d_j 
+      3. StudentT: s = std^2/d_j
+  4. Whether the approximating distribution has non_zero_mean (str: True or False)
+      1. If True: approximating distribution has a non-zero mean
+      2. If False: then the approximating distribution has a zero mean
+  5. Prior distribution (str: normal, laplace or T)
+  6. (Only if prior = T) The degrees of freedom for the T distribution (float > 0) 
+ 
+ 
+## 6. co2_regression_pymc3_1l.py
+
+Performs Automatic Differentation Variational Inference (ADVI) on a 1 hidden layer Bayesian NN. No plots or results are stored, instead the final Monte Carlo estimate MSE is printed in the terminal. This was not explored further as it was deviating from the main topic of the dissertation.
+
+**Options:**
+  1. Number of hidden units (int)
+  2. Number of variational inference iterations (int)
+  3. Prior distribution (str: normal or laplace)
+  4. Prior dispersion parameter (float > 0) [note this is then rescaled accordingly]
+      1. Normal: sigma = std/sqrt(d_j), where d_j are units from previous layer 
+      2. Laplace: b = std^2/d_j 
+  5. Output standard deviation for regression likelihood (float > 0)
+
+
+## 7. make_plots.py
+
+The script to make all the required plots for the models using HMC or SGHMC inference. This script must be ran after the inference is ran and all the files required to make the plots and additional statistics have been stored in the *"/saved/...."* directory. This script requires that the location, and the name of all the files created from the inference remain unchanged.
+
+**Options:**
+  1. Number of hidden units (int)
+  2. Inference method (str: hmc or sghmc)
+  3. Prior distribution (str: normal, laplace or T)
+  4. Total number of samples (int)
+      This corresponds to the number of samples that can be found in the name of the folder name (or instead no. phase iterations x number of samples per phase iteration)
+  5. Number of hidden layers (str: 1l or 2l)   
+  6. The last file number, equivalently this is no. phase iterations - 1 (int)
+  7. Whether to make a trace plot for the weights (str: True or False)
+  8. Whether to make the marginal distributions plots (str: True or False)
+  9. Whether to skip the burnin phase (phase 1) when plotting the MSE trace (str: True or False)
+  10. Whether to use the additional per 100 samples collected (str: True or False)
+      These are samples stored once every 100 samples during the sampling stage, we can then space these out manually using the commands for options 12 and 13. Allows a manual increase of the burnin and increase of sample spacing
+  11. Whether to show all posterior samples on predictive plot  (str: True or False)
+  12. Every how many samples from the samples of 1 per 100 to pick a sample (int)
+      Note that using 2 for example means that we take 1 sample every 200, 3 means 1 sample every 300 and so on
+  13. Proportion of the first samples that are burnt (0 < float < 1)
+  14. (Only if prior = T) The degrees of freedom for the T distribution (float > 0) 
+
+
+
+
