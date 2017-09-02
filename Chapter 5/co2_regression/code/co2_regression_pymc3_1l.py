@@ -28,9 +28,10 @@ np.random.seed(seed=314159)
 n_hidden = int(sys.argv[1])           # number of hidden units.
 N , D = np.shape(X_train)             # number of features.
 K = np.shape(Y_test)[1]               # number of classes.
-n_samp = int(sys.argv[2])             # number of samples for HMC.
-std = float(sys.argv[3])              # prior standard deviation.
-std_out = float(sys.argv[4])          # output standard deviation.
+n_iter = int(sys.argv[2])             # number of iterations
+prior = str(sys.argv[3])
+std = float(sys.argv[4])              # prior standard deviation.
+std_out = float(sys.argv[5])          # output standard deviation.
 
 # Random initialisation for the weights
 W0_init = np.random.laplace(size=[D, n_hidden]).astype(theano.config.floatX)
@@ -46,14 +47,24 @@ with Model() as neural_network:
 
 	# Specifying priors
 	# =================
-	W0 = Laplace('w0', mu=0, b=1, shape=[D, n_hidden],
-		testval=W0_init)
-	b0 = Laplace('b0', mu=0, b=1, shape=[n_hidden],
-		testval=b0_init)
-	W1 = Laplace('w1', mu=0, b=1, shape=[n_hidden, K],
-		testval=W1_init)
-	b1 = Laplace('b1', mu=0, b=1, shape=[K],
-		testval=b1_init)
+	if prior == 'laplace':
+		W0 = Laplace('w0', mu=0, b=1, shape=[D, n_hidden],
+			testval=W0_init)
+		b0 = Laplace('b0', mu=0, b=1, shape=[n_hidden],
+			testval=b0_init)
+		W1 = Laplace('w1', mu=0, b=std**2/n_hidden, shape=[n_hidden, K],
+			testval=W1_init)
+		b1 = Laplace('b1', mu=0, b=std**2/n_hidden, shape=[K],
+			testval=b1_init)
+	if prior == 'normal':
+		W0 = Normal('w0', mu=0, sd=1, shape=[D, n_hidden],
+			testval=W0_init)
+		b0 = Normal('b0', mu=0, sd=1, shape=[n_hidden],
+			testval=b0_init)
+		W1 = Normal('w1', mu=0, sd=std/n_hidden**.5, shape=[n_hidden, K],
+			testval=W1_init)
+		b1 = Normal('b1', mu=0, sd=std/n_hidden**.5, shape=[K],
+			testval=b1_init)
 
 	# Building NN likelihood
 	h1 = tt.nnet.softplus(tt.dot(X_shared, W0) + b0)
@@ -66,7 +77,7 @@ with Model() as neural_network:
 # Inference
 with neural_network:
 	# Sample from posterior
-	v_params = pm.advi(n=100000)
+	v_params = pm.advi(n=n_iter)
 	trace = pm.sample_vp(v_params, draws=5000)
 
 print(pm.df_summary(trace))
