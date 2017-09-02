@@ -7,6 +7,7 @@ All scripts can be ran using the **terminal**, by first navigating to the *code*
 
 Once you have navigated to the right folder you can run each script as follows:
 
+
 ## 1. make_data_files.py
 
 This script makes the specific **training** and **test** datasets that are used in the dissertation. Please note that they are already in the **data** folder. 
@@ -71,7 +72,6 @@ Again, when the script is ran a new folder path "saved/... model specifics ..." 
     if True: no plots are produced
     if False: produces plots
   12. (Only if prior = T) The degrees of freedom for the T distribution (float > 0) 
-  
   
 The discount factor should be set to 0, unless you want the leapfrog step size to increase/decrease for the first 2/3 phase iterations and decrease/increase in the last 1/3 phase iterations.
 
