@@ -13,6 +13,7 @@ This script makes the specific **training** and **test** datasets that are used 
 
 To run the files type the following command in the terminal:
   1. [LINUX:]
+  -----------
   python make_data_files.py
   2. [Windows:]
   py.exe make_data_files.py
