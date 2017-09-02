@@ -37,9 +37,9 @@ When the script is ran a new folder path "saved/... model specifics ..." will be
  **Example:** Suppose that you want to run a model with batch size of 200, 500 hidden units, 2 hidden layers, using softplus activation functions, the sgd optimiser, 5000 epochs and a learning rate of 0.001. Then in terminal you would run the following command,
  
   1. [LINUX:]
-  python co2_bp.py 200 500 2 softplus sgd 5000 0.001
+  python mnist_bp.py 200 500 2 softplus sgd 5000 0.001
   2. [Windows:]
-  py.exe co2_bp.py 200 500 2 softplus sgd 5000 0.001
+  py.exe mnist_bp.py 200 500 2 softplus sgd 5000 0.001
   
   
 ## 3. mnist_cnn_bp.py
