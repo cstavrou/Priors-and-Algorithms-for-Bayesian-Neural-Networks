@@ -10,7 +10,10 @@ The code in this section was used to draw all the prior samples and create the p
   5.  Number of samples of x1 and x2 (int > 0)
   6.  Graph limit (float > 0)
   7.  Number of hidden layers (int = 0, 1 or 2)            				     
-  8.  std                        			   (variance of the prior distributions)
+  8.  Prior dispersion parameter (float > 0) [note this is then rescaled accordingly]
+        1. Normal: sigma = std/sqrt(d_j), where d_j are units from previous layer
+        2. Laplace: b = std^2/d_j
+        3. StudentT: s = std^2/d_j
 # 9.  seed                        			   (random seed)
 # 10. n_iter                 				   (number of iterations for resampling prior)
 # 11. T/F                                      (whether the first layer will have std for priors)
