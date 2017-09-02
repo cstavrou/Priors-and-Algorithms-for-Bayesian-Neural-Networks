@@ -23,7 +23,7 @@ To run the files type the following command in the terminal:
 
 This script fits feed-forward neural networks using the *mnist_small* dataset. The script allows the user to input 7 options when running this script. The script allows for models with 1 or 2 hidden layers using any number of hidden units. The minibatch size is restrictive to integers dividing 2000 without remainder. Three possible activation functions can be used relu, tanh and softplus. The user can pick one of the 4 different optimisers sgd, adam, momentum or nag (Nesterov's accelerated gradient). The number of epochs must be an integer greater than 0. The learning rate for the optimisation step can also be defined. Please note that for the adam optimiser all other options apart from the learning rate are left to their default values.
 
-When the script is ran a new folder path "saved/... model specifics ..." will be created where the plots used for the feed-forward neural networks will be saved along with the information file *info_file.csv*, which contains the summary of the specific model, e.g. running times, batch size, and the final MSE.
+When the script is ran a new folder path "saved/... model specifics ..." will be created where the plots used for the feed-forward neural networks will be saved along with the information file *info_file.csv*, which contains the summary of the specific model, e.g. running times, batch size, and the final MC test prediction accuracy.
 
 **Options:**
   1. Minibatch size (must be an integer dividing 2000 exactly)
