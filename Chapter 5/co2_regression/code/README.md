@@ -63,9 +63,9 @@ Again, when the script is ran a new folder path "saved/... model specifics ..." 
   7. Number of leap frog steps (int)
   8. Number of burned samples at the beginning of each new iteration of phase 2
   9. Prior dispersion parameter (float > 0) [note this is then rescaled accordingly]
-    1. Normal: sigma = std/sqrt(d_j), where d_j are units from previous layer 
-    2. Laplace: b = std^2/d_j 
-    3. StudentT: s = std^2/d_j
+      1. Normal: sigma = std/sqrt(d_j), where d_j are units from previous layer 
+      2. Laplace: b = std^2/d_j 
+      3. StudentT: s = std^2/d_j
   10. Number of phase 2 iterations (int > 0)
   11. Whether the file is to be ran on AWS (str: True or False) 
     if True: no plots are produced
@@ -78,6 +78,7 @@ The discount factor should be set to 0, unless you want the leapfrog step size t
 The number of burned samples at the beginning of each new iteration of phase 2 should be set equal to 1, unless otherwise required.
  
 step_size_new = step_size * (1 - discount factor)^n, for n < int(2/3 * no. of phase iterations) = m
+
 step_size_new = step_size * (1 - discount factor)^m * (1 + discount factor)^(k - m), for k >= int(2/3 * no. of phase iterations)
  
  **Example:** Suppose that you want to run a model with discount factor = 0, 500 hidden units, using hmc, normal prior, 1000 samples per phase iteration, 0.001 leapfrog step size, 70 leapfrog steps, 1 burned samples at the beginning of each new iteration, dispersion parameter of 15, 10 phase 2 iterations, and producing graphics. Then in terminal you would run the following command,
