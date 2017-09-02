@@ -137,17 +137,17 @@ The script to make all the required plots for the models using HMC or SGHMC infe
   2. Inference method (str: hmc or sghmc)
   3. Prior distribution (str: normal, laplace or T)
   4. Total number of samples (int)
-      This corresponds to the number of samples that can be found in the name of the folder name (or instead no. phase iterations x number of samples per phase iteration)
+      * This corresponds to the number of samples that can be found in the name of the folder name (or instead no. phase iterations x number of samples per phase iteration)
   5. Number of hidden layers (str: 1l or 2l)   
   6. The last file number, equivalently this is no. phase iterations - 1 (int)
   7. Whether to make a trace plot for the weights (str: True or False)
   8. Whether to make the marginal distributions plots (str: True or False)
   9. Whether to skip the burnin phase (phase 1) when plotting the MSE trace (str: True or False)
   10. Whether to use the additional per 100 samples collected (str: True or False)
-      These are samples stored once every 100 samples during the sampling stage, we can then space these out manually using the commands for options 12 and 13. Allows a manual increase of the burnin and increase of sample spacing
+      * These are samples stored once every 100 samples during the sampling stage, we can then space these out manually using the commands for options 12 and 13. Allows a manual increase of the burnin and increase of sample spacing
   11. Whether to show all posterior samples on predictive plot  (str: True or False)
   12. Every how many samples from the samples of 1 per 100 to pick a sample (int)
-      Note that using 2 for example means that we take 1 sample every 200, 3 means 1 sample every 300 and so on
+      * Note that using 2 for example means that we take 1 sample every 200, 3 means 1 sample every 300 and so on
   13. Proportion of the first samples that are burnt (0 < float < 1)
   14. (Only if prior = T) The degrees of freedom for the T distribution (float > 0) 
 
