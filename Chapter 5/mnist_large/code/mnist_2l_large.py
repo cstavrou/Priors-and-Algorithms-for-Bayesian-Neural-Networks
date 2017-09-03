@@ -63,8 +63,9 @@ step_no = int(sys.argv[7])
 nburn = int(sys.argv[8])
 std = float(sys.argv[9])
 n_iter_learn = int(sys.argv[10])        # Number of iterations of learning
+disc_fact = float(sys.argv[11])
 if str(sys.argv[4]) == 'T':
-	df = float(sys.argv[11])
+	df = float(sys.argv[12])
 
 
 def nn(x, W_0, b_0, W_1, b_1, W_2, b_2):
@@ -502,11 +503,12 @@ for phase_iter in range(1, n_iter_learn):
 
 	# Increase the step size gradually for the first 2/3 of learning phases, then decrease for the last 1/3
 	if phase_iter/n_iter_learn < 2/3:
-		inc_step = 1.02*inc_step
+		inc_step = (1.0 + disc_fact)*inc_step
 	else:
-		inc_step = 0.98*inc_step
+		inc_step = (1.0 - disc_fact)*inc_step
 
 	print('Iteration = ', str(phase_iter), ' -- Inc_step = ', str(inc_step))
+	print('\nTotal elapsed time = ', total)
 
 	# Build the initial graph inference graph
 	((x, y), y_ph, W_0, b_0, W_1, b_1, W_2, b_2, qW_0, qb_0, qW_1, qb_1, 
