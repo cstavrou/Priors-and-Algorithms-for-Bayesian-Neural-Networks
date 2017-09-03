@@ -2,7 +2,7 @@
 
 This code is an adaptation of Ding, W. G., ‘Draw convnet’, https://github.com/gwding/draw convnet, 2016.
 
-Please follow the instrucions on the Github page to install the correct version of the plotting packages required to make the graph.
+Please follow the instrucions on author's the Github page to install the correct version of the plotting packages required.
 
 Once the *requirements.txt* have been correctly installed you can run the script in terminal. A plot windows will open from which the plot can be saved.
 
