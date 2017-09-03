@@ -25,10 +25,9 @@ The code in this section was used to draw all the prior samples and create the p
   14. [ONLY if prior = mix] Second prior distribution (str: T, laplace, normal or cauchy)
   
   
-  Please note that even if the degrees of freedom argument is **not** required as a different distribution than a T distribution is being used, we still need to put a value in that position of the arguments so that the program can read the rest of the arguments correctly. For the *mix* prior, we cannot define a combination of 2 different T distribution priors as we only have one degrees of freedom argument. 
+Please note that even if the degrees of freedom argument is **not** required as a different distribution than a T distribution is being used, we still need to put a value in that position of the arguments so that the program can read the rest of the arguments correctly. For the *mix* prior, we cannot define a combination of 2 different T distribution priors as we only have one degrees of freedom argument. 
   
-The **mix** prior can only be enabled for the 2 hidden layer networks. If the mix prior is being used then the first two layers of parameters (parameters connecting the inputs to the first hidden layer and the parameters connecting the first hidden layer to the second hidden layer) have the distribution defined by the first prior distribution (argument 13), and the last layer of parameters have the distribution defined by the second prior distribution (argument 14).
+The **mix** prior can only be enabled for the 2 hidden layer networks. If the mix prior is being used then the first two layers of parameters (parameters connecting the inputs to the first hidden layer and the parameters connecting the first hidden layer to the second hidden layer) have the distribution defined by the first prior distribution (**argument 13**), and the last layer of parameters have the distribution defined by the second prior distribution (**argument 14**).
 
-Please note, that for any arguments not required you should still input a value (which is not actually used) as the arguments are assigned to the correct variable based on their position within the input argument list.
-  
+Please note, that for any arguments not required you should still input a value (which is not actually used) as the arguments are assigned to the correct variable based on their position within the input argument list. However, if the prior (**argument 4**) is not *mix* or *spike_slab*, then arguments **12-14** are not required. 
   
