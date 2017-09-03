@@ -1,0 +1,11 @@
+Total algorithm time (seconds) -- 221.67114976612694
+Batch size -- 275
+Test accuracy (posterior) -- 0.156692
+MSE (500 samples from posterior MC estimate) -- 0.214338
+Std of MSE estimate (500 samples from posterior) -- 0.00867744880863
+Prior standard deviation -- 10.0
+Output noise (std) -- 0.07
+Test accuracy (500 sample MSE estimate exluding burn-in) -- 0.160374
+Leapfrog step size -- 5e-05
+Number of leapfrog steps -- 80
+Burnin --1000
