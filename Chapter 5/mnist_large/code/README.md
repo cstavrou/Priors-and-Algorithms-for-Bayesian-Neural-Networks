@@ -89,4 +89,4 @@ All the plots are saved in the corresponding folder, please note that in the ter
   13. Proportion of the first samples that are burnt (0 < float < 1)
   14. (Only if prior = T) The degrees of freedom for the T distribution (float > 0) 
 
-*Please note that for the 2l and conv_net models argument 8 must be set to* **False** *as the probability trace plots are not created by the code*.
+*Please note that for the 2l and conv_net models argument 8 must be set to* **False** *as the probability trace plots are not created by the code (this will be changed in the future)*.
