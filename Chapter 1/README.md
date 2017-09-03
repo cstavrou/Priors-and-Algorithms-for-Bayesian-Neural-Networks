@@ -8,5 +8,5 @@ Once the *requirements.txt* have been correctly installed you can run the script
 
 Navigate to the folder containing the **draw_convnet.py** file then execute the following command in the terminal:
 
-[LINUX:] python3 draw_convnet.py
-[WINDOWS:] py.exe draw_convnet.py
+* [LINUX:] python3 draw_convnet.py
+* [WINDOWS:] py.exe draw_convnet.py
